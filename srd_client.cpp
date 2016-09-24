@@ -2,5 +2,7 @@
 
 srd_client::srd_client()
 {
+    config.init();
+
 
 }
