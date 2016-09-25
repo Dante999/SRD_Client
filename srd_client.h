@@ -7,6 +7,9 @@
 
 class srd_client
 {
+
+    Q_OBJECT
+
 private:
     Config config;
     clientDataStruct gameData;
@@ -18,6 +21,12 @@ public:
     void init_config();
     void init_dashboard();
     void init_serialport();
+
+private slots:
+
+    void dataReceived();
+
+    void refreshGameData(clientDataStruct data);
 };
 
 #endif // SRD_CLIENT_H

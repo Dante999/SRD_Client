@@ -21,7 +21,7 @@ private:
         WAITFOR_DATA
     } state;
 
-    struct _received
+    struct receivePackage
     {
         uint8_t cmd;
         uint8_t length;
@@ -44,7 +44,7 @@ public:
     void close();
 
 signals:
-    void dataReceived(_received dataPackage);
+    void dataReceived(serialPackage dataPackage);
 
 
 

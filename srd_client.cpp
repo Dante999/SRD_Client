@@ -20,6 +20,11 @@ void srd_client::init_serialport()
 
 }
 
+void srd_client::dataReceived()
+{
+
+}
+
 void srd_client::init_dashboard()
 {
     qDebug() << "Starting gui...";
