@@ -17,6 +17,7 @@ public:
 
     void init_config();
     void init_dashboard();
+    void init_serialport();
 };
 
 #endif // SRD_CLIENT_H

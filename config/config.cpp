@@ -50,7 +50,7 @@ void Config::readFromFile()
 
 void Config::writeToFile()
 {
-    QMapIterator<QString,QString> i(values);
+    QMapIterator<QString,QString> i(cfgMap);
     QTextStream out(&fConfig);
 
 
@@ -69,8 +69,8 @@ void Config::writeToFile()
 
 void Config::setDefaultValues()
 {
-    values.insert(CFG_SERIALPORT, "ttyAMA0");
-    values.insert(CFG_FULLSCREEN, "1");
+    cfgMap.insert(CFG_SERIALPORT, "ttyAMA0");
+    cfgMap.insert(CFG_FULLSCREEN, "1");
 }
 
 void Config::parseLine(const QString line, const int number)
@@ -103,15 +103,27 @@ void Config::parseLine(const QString line, const int number)
 
         qDebug() << key << "->" << value;
 
+        cfgMap.insert(key, value);
+
     }
     catch(QString &msg)
     {
         qDebug() << "[E] Line" << number << ":" << msg;
     }
 
+}
+
+QString Config::getValue(QString key)
+{
 
 
+    if(cfgMap.contains(key)) return cfgMap.value(key);
 
+    return "";
 
 
 }
+
+
+
+

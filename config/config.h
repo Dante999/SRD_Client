@@ -26,8 +26,9 @@ public:
 
 
     void writeToFile();
+    QString getValue(QString key);
 private:
-    QMap<QString, QString> values;
+    QMap<QString, QString> cfgMap;
 
 
     void setDefaultValues();

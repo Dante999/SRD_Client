@@ -1,4 +1,5 @@
-QT += core gui
+QT += core gui \
+    serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,7 +21,8 @@ SOURCES += main.cpp \
     dashboard/pixmaps/defaultmonitor.cpp \
     dashboard/pixmaps/textframe.cpp \
     dashboard/dashboard.cpp \
-    dashboard/dashboardthread.cpp
+    dashboard/dashboardthread.cpp \
+    serialcom.cpp
 
 HEADERS += \
     srd_client.h \
@@ -34,7 +36,8 @@ HEADERS += \
     dashboard/pixmaps/textframe.h \
     dashboard/dashboard.h \
     dashboard/dashboardthread.h \
-    clientData.h
+    clientData.h \
+    serialcom.h
 
 DISTFILES += \
     .gitattributes \
