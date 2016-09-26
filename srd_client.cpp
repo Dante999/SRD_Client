@@ -38,13 +38,15 @@ void srd_client::init_dashboard()
 
 
     if(config.getValue(CFG_FULLSCREEN) == "1")
-    {
+    {        
         dashboard->showFullScreen();
+        qDebug() << "open in fullscreen";
     }
     else
     {
         dashboard->resize(1024,600);
         dashboard->show();
+        qDebug() << "open in 1024x600";
     }
 
 }

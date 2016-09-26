@@ -21,6 +21,8 @@ SerialCom::SerialCom(QString portName, qint32 baudRate)
     sPort->setFlowControl(QSerialPort::NoFlowControl);
 
     connect(sPort, SIGNAL(readyRead()), this, SLOT(readData()));
+
+    writeData(CMD_READY, 1, "0");
 }
 
 
