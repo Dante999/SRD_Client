@@ -25,7 +25,9 @@ void srd_client::init_config()
 
 void srd_client::init_serialport()
 {
+    serialcom = new SerialCom(config.getValue(CFG_SERIALPORT), 19200);
 
+    serialcom->open();
 }
 
 void srd_client::init_dashboard()
@@ -53,6 +55,10 @@ void srd_client::dataFromSerial(serialPackage package)
 
     switch(package.cmd)
     {
+
+    case CMD_REQUEST:
+                        serialcom->writeData(CMD_ACK, 1 ,"0");
+
     case CMD_GAMEDATA:
                         if(package.length != sizeof(gameData))
                         {

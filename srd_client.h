@@ -14,7 +14,9 @@ class srd_client : public QObject
 private:
     Config config;
     gameDataStruct gameData;
+
     Dashboard *dashboard;
+    SerialCom *serialcom;
 
     void init_config();
     void init_dashboard();

@@ -7,6 +7,8 @@
 
 
 #define SYNC_BYTE       0xF0
+#define CMD_REQUEST     0x01
+#define CMD_ACK         0x02
 #define CMD_GAMEDATA    0x0A
 
 
