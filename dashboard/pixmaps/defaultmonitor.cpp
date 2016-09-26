@@ -117,7 +117,7 @@ void DefaultMonitor::drawLabels()
     labels[DELTA_AHEAD].drawText(this, "tAhea");
 }
 
-void DefaultMonitor::drawValues(clientDataStruct data)
+void DefaultMonitor::drawValues(gameDataStruct data)
 {
     for(size_t i = 0; i < sizeof(values)/sizeof(TextFrame); i++)
     {

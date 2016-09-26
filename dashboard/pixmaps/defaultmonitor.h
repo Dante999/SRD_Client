@@ -44,7 +44,7 @@ private:
 
     void calculateFrames();
     void drawLabels();
-    void drawValues(clientDataStruct data);
+    void drawValues(gameDataStruct data);
 
 
 

@@ -16,7 +16,7 @@ private:
 
 public:
     DashboardContent();
-    virtual void drawValues(clientDataStruct data) = 0;
+    virtual void drawValues(gameDataStruct data) = 0;
 
 
 };

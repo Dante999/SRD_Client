@@ -81,7 +81,7 @@ typedef struct
     float timeSplitAhead;
     float timeSplitBehind;
 
-} clientDataStruct;
+} gameDataStruct;
 
 
 

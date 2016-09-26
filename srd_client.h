@@ -3,30 +3,33 @@
 
 #include "config/config.h"
 #include "clientData.h"
+#include "serialcom.h"
 #include "dashboard/dashboard.h"
 
-class srd_client
+class srd_client : public QObject
 {
 
     Q_OBJECT
 
 private:
     Config config;
-    clientDataStruct gameData;
+    gameDataStruct gameData;
     Dashboard *dashboard;
-
-public:
-    srd_client();
 
     void init_config();
     void init_dashboard();
     void init_serialport();
 
+public:
+    srd_client();
+    void start();
+
+
+
 private slots:
 
-    void dataReceived();
+    void dataFromSerial(serialPackage serialData);
 
-    void refreshGameData(clientDataStruct data);
 };
 
 #endif // SRD_CLIENT_H

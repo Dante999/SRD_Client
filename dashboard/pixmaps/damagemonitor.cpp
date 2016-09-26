@@ -122,7 +122,7 @@ void DamageMonitor::drawLabels()
 
 
 
-void DamageMonitor::drawValues(clientDataStruct data)
+void DamageMonitor::drawValues(gameDataStruct data)
 {    
     carshape.drawShapeImage();
 

@@ -4,17 +4,14 @@
 
 
 int main(int argc, char *argv[])
-{
-    //QCoreApplication a(argc, argv);
+{    
     QApplication a(argc, argv);
 
     qDebug() << "starting client...";
 
     srd_client *client = new srd_client();
 
-    client->init_config();
-    //client wait for serialPort
-    client->init_dashboard();
+    client->start();
 
     return a.exec();
 }

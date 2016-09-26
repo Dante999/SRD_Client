@@ -6,6 +6,26 @@
 
 
 
+#define SYNC_BYTE       0xF0
+#define CMD_GAMEDATA    0x0A
+
+
+
+
+
+
+
+
+
+
+typedef struct
+{
+    uint8_t cmd;
+    uint8_t length;
+    char data[256];
+} serialPackage;
+
+
 
 class SerialCom : public QObject
 {
@@ -13,7 +33,7 @@ class SerialCom : public QObject
 
 private:
 
-    enum receiveState
+    enum serialState
     {
         WAITFOR_SYNC,
         WAITFOR_CMD,
@@ -21,12 +41,9 @@ private:
         WAITFOR_DATA
     } state;
 
-    struct receivePackage
-    {
-        uint8_t cmd;
-        uint8_t length;
-        char data[256];
-    } received;
+
+
+    serialPackage received;
 
 
 
@@ -37,6 +54,11 @@ private:
     void stateMachine();
 
 public:
+
+
+
+
+
     SerialCom(QString portName, qint32 baudRate = QSerialPort::Baud19200);
 
     void writeData(uint8_t cmd, uint8_t dataLength, const char *data);

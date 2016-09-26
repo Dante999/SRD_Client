@@ -23,7 +23,7 @@ private:
 
     enum monitor{FIRST, DEFAULT, DAMAGE, /**/ LAST} curMonitor;
     DashboardContent *content;
-    clientDataStruct *gameData;
+    gameDataStruct *gameData;
 
     void selectMonitor();
 
@@ -31,7 +31,7 @@ private:
 
 public:
 
-    Dashboard(clientDataStruct *gameData);
+    Dashboard(gameDataStruct *gameData);
     void paintEvent(QPaintEvent *);
     void keyPressEvent(QKeyEvent* e);
 

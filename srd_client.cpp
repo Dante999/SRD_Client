@@ -10,17 +10,20 @@ srd_client::srd_client()
 
 }
 
+void srd_client::start()
+{
+    init_config();
+    init_serialport();
+    init_dashboard();
+
+}
+
 void srd_client::init_config()
 {
     config.init();
 }
 
 void srd_client::init_serialport()
-{
-
-}
-
-void srd_client::dataReceived()
 {
 
 }
@@ -41,5 +44,32 @@ void srd_client::init_dashboard()
         dashboard->resize(1024,600);
         dashboard->show();
     }
+
+}
+
+
+void srd_client::dataFromSerial(serialPackage package)
+{
+
+    switch(package.cmd)
+    {
+    case CMD_GAMEDATA:
+                        if(package.length != sizeof(gameData))
+                        {
+                            qDebug() << "Error datalength!!";
+                        }
+                        else
+                        {
+                            memcpy(&gameData, &package.data, sizeof(gameData));
+                        }
+
+        break;
+
+    }
+
+    dashboard->update();
+
+
+
 
 }

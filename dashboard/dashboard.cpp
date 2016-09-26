@@ -32,7 +32,7 @@ void Dashboard::selectMonitor()
 
 }
 
-Dashboard::Dashboard(clientDataStruct *gameData)
+Dashboard::Dashboard(gameDataStruct *gameData)
 {
     content = Q_NULLPTR;
 

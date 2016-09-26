@@ -57,7 +57,7 @@ private:
 public:
     DamageMonitor();
 
-    void drawValues(clientDataStruct data);
+    void drawValues(gameDataStruct data);
 
 };
 

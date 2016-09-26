@@ -3,7 +3,7 @@
 
 
 
-#define SYNC_BYTE 0xF0
+
 
 
 
