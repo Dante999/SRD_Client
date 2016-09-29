@@ -22,7 +22,7 @@ SOURCES += main.cpp \
     dashboard/pixmaps/textframe.cpp \
     dashboard/dashboard.cpp \
     dashboard/dashboardthread.cpp \
-    serialcom.cpp
+    serialcom/serialcom.cpp
 
 HEADERS += \
     srd_client.h \
@@ -37,7 +37,7 @@ HEADERS += \
     dashboard/dashboard.h \
     dashboard/dashboardthread.h \
     clientData.h \
-    serialcom.h
+    serialcom/serialcom.h
 
 DISTFILES += \
     .gitattributes \

@@ -6,18 +6,7 @@
 
 
 
-#define SYNC_BYTE       0xF0
-#define CMD_REQUEST     0x01
-#define CMD_ACK         0x02
-#define CMD_READY       0x03
-#define CMD_GAMEDATA    0x0A
-
-
-
-
-
-
-
+#define SYNC_BYTE       0x00
 
 
 
@@ -28,9 +17,16 @@ typedef struct
     char data[256];
 } serialPackage;
 
+enum serialCommands
+{
+    CMD_REQUEST = 1,
+    CMD_ACK,
+    CMD_GAMEDATA,
+};
 
 
-class SerialCom : public QObject
+
+class SerialCom : public QSerialPort
 {
     Q_OBJECT
 
@@ -48,31 +44,19 @@ private:
 
     serialPackage received;
 
-
-
-    QSerialPort *sPort;
-
-
-
     void stateMachine();
 
 public:
 
-
-
-
-
     SerialCom(QString portName, qint32 baudRate = QSerialPort::Baud19200);
 
-    void writeData(uint8_t cmd, uint8_t dataLength, const char *data);
+    void writeData(serialCommands cmd, uint8_t dataLength, const char *data);
+    void writeCommand(serialCommands cmd);
     void open();
     void close();
 
 signals:
     void dataReceived(serialPackage dataPackage);
-
-
-
 
 private slots:
     void readData();

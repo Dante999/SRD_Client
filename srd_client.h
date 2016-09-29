@@ -3,7 +3,7 @@
 
 #include "config/config.h"
 #include "clientData.h"
-#include "serialcom.h"
+#include "serialcom/serialcom.h"
 #include "dashboard/dashboard.h"
 
 class srd_client : public QObject
