@@ -2,7 +2,7 @@
 #define SRD_CLIENT_H
 
 #include "config/config.h"
-#include "clientData.h"
+#include "gameData.h"
 #include "serialcom/serialcom.h"
 #include "dashboard/dashboard.h"
 

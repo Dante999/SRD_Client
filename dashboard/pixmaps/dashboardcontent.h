@@ -1,7 +1,7 @@
 #ifndef INTERFACEMONITOR_H
 #define INTERFACEMONITOR_H
 
-#include "clientData.h"
+#include "gameData.h"
 #include <QPixmap>
 
 

@@ -156,9 +156,7 @@ void SerialCom::stateMachine()
                 if(iterator >= received.length)
                 {
                     state = WAITFOR_SYNC;
-                    iterator = 0;
-
-                    qDebug() << HEADER << "incoming data complete";
+                    iterator = 0;                    
 
                     emit dataReceived(received);                    
                 }

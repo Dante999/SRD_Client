@@ -36,8 +36,8 @@ HEADERS += \
     dashboard/pixmaps/textframe.h \
     dashboard/dashboard.h \
     dashboard/dashboardthread.h \
-    clientData.h \
-    serialcom/serialcom.h
+    serialcom/serialcom.h \
+    gameData.h
 
 DISTFILES += \
     .gitattributes \
