@@ -1,6 +1,6 @@
 #include <QApplication>
 #include <QDebug>
-#include "srd_client.h"
+#include "srdclient.h"
 
 
 int main(int argc, char *argv[])
@@ -9,9 +9,8 @@ int main(int argc, char *argv[])
 
     qDebug() << "starting client...";
 
-    srd_client *client = new srd_client();
-
-    client->start();
+    SrdClient *client = new SrdClient();
+    //client->start();
 
     return a.exec();
 }

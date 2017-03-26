@@ -1,14 +1,16 @@
 #ifndef SERIALCOM_H
 #define SERIALCOM_H
 
+
 #include <QtSerialPort/QSerialPort>
 #include "stdint.h"
 
-
-
 #define SYNC_BYTE       0x00
-
-
+#define CMD_REQUEST             10
+#define CMD_ACKNOWLEDGE         11
+#define CMD_GAMEDATA            20
+#define CMD_SETTINGS            30
+#define CMD_ERR_GAMEDATA_SIZE   40
 
 typedef struct
 {
@@ -17,14 +19,6 @@ typedef struct
     char data[256];
 } serialPackage;
 
-enum serialCommands
-{
-    CMD_REQUEST = 1,
-    CMD_ACK,
-    CMD_GAMEDATA,
-};
-
-
 
 class SerialCom : public QSerialPort
 {
@@ -32,34 +26,30 @@ class SerialCom : public QSerialPort
 
 private:
 
-    enum serialState
+    enum parseState
     {
         WAITFOR_SYNC,
         WAITFOR_CMD,
         WAITFOR_LENGTH,
         WAITFOR_DATA
-    } state;
+    };
 
+    parseState m_state;
+    serialPackage m_received;
 
-
-    serialPackage received;
-
-    void stateMachine();
+    void parseSingleByte(char byte);
 
 public:
 
     SerialCom(QString portName, qint32 baudRate = QSerialPort::Baud19200);
-
-    void writeData(serialCommands cmd, uint8_t dataLength, const char *data);
-    void writeCommand(serialCommands cmd);
-    void open();
-    void close();
+    void writeData(uint8_t cmd, uint8_t dataLength, const char *data);
 
 signals:
-    void dataReceived(serialPackage dataPackage);
+    void parsingComplete(serialPackage dataPackage);
 
 private slots:
-    void readData();
+    void parseAllReceivedBytes();
+
 };
 
 #endif // SERIALCOM_H

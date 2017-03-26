@@ -1,44 +1,38 @@
-QT += core gui \
-    serialport
+#-------------------------------------------------
+#
+# Project created by QtCreator 2017-03-26T19:45:59
+#
+#-------------------------------------------------
+
+QT       += core gui \
+            serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-
-#CONFIG += c++11
-
 TARGET = SRD_Client
-#CONFIG += console
-#CONFIG -= app_bundle
-
 TEMPLATE = app
 
+# The following define makes your compiler emit warnings if you use
+# any feature of Qt which as been marked as deprecated (the exact warnings
+# depend on your compiler). Please consult the documentation of the
+# deprecated API in order to know how to port your code away from it.
+DEFINES += QT_DEPRECATED_WARNINGS
+
+# You can also make your code fail to compile if you use deprecated APIs.
+# In order to do so, uncomment the following line.
+# You can also select to disable deprecated APIs only up to a certain version of Qt.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+
 SOURCES += main.cpp \
-    srd_client.cpp \
-    config/config.cpp \
-    dashboard/pixmaps/carshape.cpp \
-    dashboard/pixmaps/damagemonitor.cpp \
-    dashboard/pixmaps/dashboardcontent.cpp \
-    dashboard/pixmaps/defaultmonitor.cpp \
-    dashboard/pixmaps/textframe.cpp \
-    dashboard/dashboard.cpp \
-    dashboard/dashboardthread.cpp \
-    serialcom/serialcom.cpp
+    srdclient.cpp \
+    config.cpp \
+    serialcom.cpp
 
-HEADERS += \
-    srd_client.h \
-    config/config.h \
-    dashboard/pixmaps/carshape.h \
-    dashboard/pixmaps/damagemonitor.h \
-    dashboard/pixmaps/dashboardcontent.h \
-    dashboard/pixmaps/defaultmonitor.h \
-    dashboard/pixmaps/interfacemonitor.h \
-    dashboard/pixmaps/settings.h \
-    dashboard/pixmaps/textframe.h \
-    dashboard/dashboard.h \
-    dashboard/dashboardthread.h \
-    serialcom/serialcom.h \
-    gameData.h
+HEADERS  += \
+    srdclient.h \
+    config.h \
+    gameData.h \
+    serialcom.h
 
-DISTFILES += \
-    .gitattributes \
-    .gitignore
+FORMS    +=
