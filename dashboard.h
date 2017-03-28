@@ -4,14 +4,15 @@
 #include <QWidget>
 #include <QVector>
 
+#include "dashcontent/dashboardcontent.h"
+#include "gameData.h"
+
 class Dashboard : public QWidget
 {
     Q_OBJECT
 
 
 private:
-
-
     DashboardContent *m_dashContent;
     gameDataStruct *m_gameData;
 

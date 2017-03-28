@@ -27,12 +27,27 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     srdclient.cpp \
     config.cpp \
-    serialcom.cpp
+    serialcom.cpp \
+    dashboard.cpp \
+    dashcontent/textframe.cpp \
+    dashcontent/defaultmonitor.cpp \
+    dashcontent/dashboardcontent.cpp \
+    dashcontent/carshape.cpp \
+    dashcontent/damagemonitor.cpp
 
 HEADERS  += \
     srdclient.h \
     config.h \
     gameData.h \
-    serialcom.h
+    serialcom.h \
+    dashboard.h \
+    dashcontent/textframe.h \
+    dashcontent/defaultmonitor.h \
+    dashcontent/dashboardcontent.h \
+    dashcontent/carshape.h \
+    dashcontent/damagemonitor.h
 
 FORMS    +=
+
+DISTFILES += \
+    img/carframe.png

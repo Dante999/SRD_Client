@@ -4,6 +4,14 @@
 #define CONFIG_FILENAME     "config.cfg"
 
 
+Config *Config::getInstance()
+{
+   static Config instance;
+
+   return &instance;
+}
+
+
 
 /*******************************************************************************
  * @brief   constructor
@@ -106,7 +114,6 @@ void Config::writeToFile()
     m_configFile.close();
 }
 
-
 void Config::setDefaultValues()
 {
     m_cfgMap.insert(CFG_SERIALPORT,     "ttyAMA0");
@@ -159,9 +166,6 @@ void Config::parseLine(const QString line, const int number)
             qDebug() << "[E] Line" << number << ":" << msg;
         }
     }
-
-
-
 }
 
 

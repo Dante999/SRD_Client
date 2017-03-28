@@ -32,17 +32,20 @@
 class Config
 {
 
-private:
-    QFile m_configFile;
-    QMap<QString, QString> m_cfgMap;
+private:   
+   Config();
 
-    void setDefaultValues();
-    void parseLine(const QString line, const int number);
-    void readFromFile();
-    void writeToFile();
+   QFile m_configFile;
+   QMap<QString, QString> m_cfgMap;
+
+   void setDefaultValues();
+   void parseLine(const QString line, const int number);
+   void readFromFile();
+   void writeToFile();
 
 public:
-    Config();
+    static Config *getInstance();
+
     ~Config();
     QString getValue(QString key);
 

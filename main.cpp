@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     qDebug() << "starting client...";
 
     SrdClient *client = new SrdClient();
-    //client->start();
+    client->start();
 
     return a.exec();
 }
