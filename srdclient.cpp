@@ -12,11 +12,11 @@ SrdClient::SrdClient()
 
 void SrdClient::start()
 {
-   m_serialCom = new SerialCom(m_config->getValue(CFG_SERIALPORT), 19200);
-   connect(m_serialCom, SIGNAL(parsingComplete(serialPackage)), this, SLOT(executeCommand(serialPackage)));
+   m_serialCom = new SerialCom(m_config->getValue(CFG_SERIALPORT), 19200);   
 
    if(m_serialCom->open(QIODevice::ReadWrite))
    {
+      connect(m_serialCom, SIGNAL(parsingComplete(serialPackage)), this, SLOT(executeCommand(serialPackage)));
       m_dashboard = new Dashboard(&m_gameData);
 
       if(m_config->getValue(CFG_FULLSCREEN) == "1")
@@ -53,6 +53,13 @@ void SrdClient::start()
 
 void SrdClient::executeCommand(serialPackage serialData)
 {
+   static int counter = 0;
+
+   counter ++;
+   counter %= 1000;
+
+   qDebug() << "data" << counter;
+
 
    switch(serialData.cmd)
    {
@@ -61,15 +68,15 @@ void SrdClient::executeCommand(serialPackage serialData)
          break;
 
       case CMD_GAMEDATA:
-         if(serialData.length != sizeof(m_gameData))
+         if(serialData.length == sizeof(m_gameData))
          {
-            qDebug() << "Error datalength!!";
-            m_serialCom->writeData(CMD_ERR_GAMEDATA_SIZE, 1, "E");
+            memcpy(&m_gameData, &serialData.data, sizeof(m_gameData));
+            //m_serialCom->writeData(CMD_ACKNOWLEDGE, 1, "A");
          }
          else
          {
-            memcpy(&m_gameData, &serialData.data, sizeof(m_gameData));
-            m_serialCom->writeData(CMD_ACKNOWLEDGE, 1, "A");
+            qDebug() << "Error datalength!!";
+            m_serialCom->writeData(CMD_ERR_GAMEDATA_SIZE, 1, "E");
          }
 
          break;

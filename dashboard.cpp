@@ -6,6 +6,7 @@
 
 #include "dashcontent/defaultmonitor.h"
 #include "dashcontent/damagemonitor.h"
+#include "dashcontent/temperaturemonitor.h"
 
 
 Dashboard::Dashboard(gameDataStruct *gameData)
@@ -15,6 +16,7 @@ Dashboard::Dashboard(gameDataStruct *gameData)
 
     m_contents.append(new DefaultMonitor());
     m_contents.append(new DamageMonitor());
+    m_contents.append(new TemperatureMonitor());
 
 }
 

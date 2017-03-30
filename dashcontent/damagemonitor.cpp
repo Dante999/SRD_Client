@@ -58,7 +58,8 @@ void DamageMonitor::repaintValues(gameDataStruct data)
 {
    for(unsigned int i = 0; i < sizeof(m_values)/sizeof(TextFrame); i++)
    {
-       m_values[i].drawFrame(this);
+      m_values[i].clearArea(this);
+      m_values[i].drawFrame(this);
    }
 
    m_values[DMG::STATUS_MSG].drawText(this, "Damage");

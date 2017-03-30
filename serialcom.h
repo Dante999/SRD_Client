@@ -5,7 +5,7 @@
 #include <QtSerialPort/QSerialPort>
 #include "stdint.h"
 
-#define SYNC_BYTE       0x00
+#define SYNC_BYTE               0x00
 #define CMD_REQUEST             10
 #define CMD_ACKNOWLEDGE         11
 #define CMD_GAMEDATA            20

@@ -95,6 +95,7 @@ void DefaultMonitor::repaintValues(gameDataStruct data)
 {
    for(size_t i = 0; i < sizeof(m_values)/sizeof(TextFrame); i++)
    {
+      m_values[i].clearArea(this);
       m_values[i].drawFrame(this);
    }
 

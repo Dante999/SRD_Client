@@ -33,7 +33,8 @@ SOURCES += main.cpp \
     dashcontent/defaultmonitor.cpp \
     dashcontent/dashboardcontent.cpp \
     dashcontent/carshape.cpp \
-    dashcontent/damagemonitor.cpp
+    dashcontent/damagemonitor.cpp \
+    dashcontent/temperaturemonitor.cpp
 
 HEADERS  += \
     srdclient.h \
@@ -45,7 +46,8 @@ HEADERS  += \
     dashcontent/defaultmonitor.h \
     dashcontent/dashboardcontent.h \
     dashcontent/carshape.h \
-    dashcontent/damagemonitor.h
+    dashcontent/damagemonitor.h \
+    dashcontent/temperaturemonitor.h
 
 FORMS    +=
 

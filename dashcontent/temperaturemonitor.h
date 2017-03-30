@@ -1,15 +1,12 @@
-#ifndef DAMAGEMONITOR_H
-#define DAMAGEMONITOR_H
+#ifndef TEMPERATUREMONITOR_H
+#define TEMPERATUREMONITOR_H
 
-#include <QImage>
-#include <QPainterPath>
-#include <QColor>
 #include "dashboardcontent.h"
 #include "carshape.h"
 #include "textframe.h"
 #include "../config.h"
 
-namespace DMG
+namespace TEMP
 {
     enum part{
         STATUS_MSG = 0,
@@ -17,45 +14,41 @@ namespace DMG
         TYRE_FRONT_RIGHT,
         TYRE_REAR_LEFT,
         TYRE_REAR_RIGHT,
-        SUSP_FRONT_LEFT,
-        SUSP_FRONT_RIGHT,
-        SUSP_REAR_LEFT,
-        SUSP_REAR_RIGHT,
         BRAKE_FRONT_LEFT,
         BRAKE_FRONT_RIGHT,
         BRAKE_REAR_LEFT,
         BRAKE_REAR_RIGHT,
-        AERO,
-        ENGINE,
+        OIL,
+        WATER,
         //-----
-        DMG_MAX
+        TEMP_MAX
     };
 }
 
 
 
 
-class DamageMonitor : public DashboardContent
+class TemperatureMonitor : public DashboardContent
 {
 
 private:
    Config   *m_config;
    CarShape  m_carshape;
-   TextFrame m_values[DMG::DMG_MAX];
-   TextFrame m_labels[DMG::DMG_MAX];
+   TextFrame m_values[TEMP::TEMP_MAX];
+   TextFrame m_labels[TEMP::TEMP_MAX];
 
    void setLayout();
    void repaintLabels();
    void repaintValues(gameDataStruct data);
    void repaintCarshape(gameDataStruct data);
 
-   QColor getDamageIndicator(int damage);
+   QColor getTempIndicator(int temperature, int limitLow, int limitHigh);
 
 
 public:
-    DamageMonitor();
+    TemperatureMonitor();
 
 
 };
 
-#endif // DAMAGEMONITOR_H
+#endif // TEMPERATUREMONITOR_H
